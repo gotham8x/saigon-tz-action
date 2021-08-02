@@ -1,0 +1,12 @@
+name: 'Saigon Timezone'
+description: 'Saigon Timezone'
+inputs:
+  tz:
+    description: A custom timezone. Defaults to Asia/Ho_Chi_Minh
+    required: false
+    default: 'Asia/Ho_Chi_Minh'
+runs:
+  using: 'composite'
+  steps:
+    - run: sudo timedatectl set-timezone "${{ inputs.tz }}"
+      shell: bash
